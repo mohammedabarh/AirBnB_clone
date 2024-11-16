@@ -1,11 +1,15 @@
 #!/usr/bin/python3
+"""Defines unittests for console.py.
+Unittest classes:
+    TestHBNBCommand_prompting
+    TestHBNBCommand_help
+    TestHBNBCommand_exit
+    TestHBNBCommand_create
+    TestHBNBCommand_show
+    TestHBNBCommand_all
+    TestHBNBCommand_destroy
+    TestHBNBCommand_update
 """
-Console Testing Module
-
-This module provides comprehensive testing for the HBNB console functionality.
-It validates command interpretation, execution, and output handling.
-"""
-
 import os
 import sys
 import unittest
@@ -17,96 +21,81 @@ from unittest.mock import patch
 
 
 class TestHBNBCommand_prompting(unittest.TestCase):
-    """
-    Test suite for command prompt functionality.
-    Validates proper prompt display and command line interface behavior.
-    """
+    """Unittests for testing prompting of the HBNB command interpreter."""
 
     def test_prompt_string(self):
-        """Verify the command prompt displays the correct string"""
         self.assertEqual("(hbnb) ", HBNBCommand.prompt)
 
     def test_empty_line(self):
-        """Ensure empty line input is handled appropriately"""
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd(""))
             self.assertEqual("", output.getvalue().strip())
 
 
 class TestHBNBCommand_help(unittest.TestCase):
-    """
-    Test suite for help command functionality.
-    Ensures help messages are properly displayed for all commands.
-    """
+    """Unittests for testing help messages of the HBNB command interpreter."""
 
     def test_help_quit(self):
-        """Validate help message for quit command"""
-        h = "Quit command to exit the program"
+        h = "Quit command to exit the program."
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help quit"))
             self.assertEqual(h, output.getvalue().strip())
 
     def test_help_create(self):
-        """Validate help message for create command"""
         h = ("Usage: create <class>\n        "
-             "Create a new class instance and print its id")
+             "Create a new class instance and print its id.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help create"))
             self.assertEqual(h, output.getvalue().strip())
 
     def test_help_EOF(self):
-        """Validate help message for EOF command"""
-        h = "EOF signal to exit the program"
+        h = "EOF signal to exit the program."
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help EOF"))
             self.assertEqual(h, output.getvalue().strip())
 
     def test_help_show(self):
-        """Validate help message for show command"""
         h = ("Usage: show <class> <id> or <class>.show(<id>)\n        "
              "Display the string representation of a class instance of"
-             " a given id")
+             " a given id.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help show"))
             self.assertEqual(h, output.getvalue().strip())
 
     def test_help_destroy(self):
-        """Validate help message for destroy command"""
         h = ("Usage: destroy <class> <id> or <class>.destroy(<id>)\n        "
-             "Delete a class instance of a given id")
+             "Delete a class instance of a given id.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help destroy"))
             self.assertEqual(h, output.getvalue().strip())
 
     def test_help_all(self):
-        """Validate help message for all command"""
         h = ("Usage: all or all <class> or <class>.all()\n        "
-             "Display string representations of all instances of a given class")
+             "Display string representations of all instances of a given class"
+             ".\n        If no class is specified, displays all instantiated "
+             "objects.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help all"))
             self.assertEqual(h, output.getvalue().strip())
 
     def test_help_count(self):
-        """Validate help message for count command"""
         h = ("Usage: count <class> or <class>.count()\n        "
-             "Retrieve the number of instances of a given class")
+             "Retrieve the number of instances of a given class.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help count"))
             self.assertEqual(h, output.getvalue().strip())
 
     def test_help_update(self):
-        """Validate help message for update command"""
         h = ("Usage: update <class> <id> <attribute_name> <attribute_value> or"
              "\n       <class>.update(<id>, <attribute_name>, <attribute_value"
              ">) or\n       <class>.update(<id>, <dictionary>)\n        "
              "Update a class instance of a given id by adding or updating\n   "
-             "     a given attribute key/value pair or dictionary")
+             "     a given attribute key/value pair or dictionary.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help update"))
             self.assertEqual(h, output.getvalue().strip())
 
     def test_help(self):
-        """Validate general help message"""
         h = ("Documented commands (type help <topic>):\n"
              "========================================\n"
              "EOF  all  count  create  destroy  help  quit  show  update")
@@ -116,31 +105,22 @@ class TestHBNBCommand_help(unittest.TestCase):
 
 
 class TestHBNBCommand_exit(unittest.TestCase):
-    """
-    Test suite for exit commands.
-    Validates proper program termination behavior.
-    """
+    """Unittests for testing exiting from the HBNB command interpreter."""
 
     def test_quit_exits(self):
-        """Verify quit command exits properly"""
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertTrue(HBNBCommand().onecmd("quit"))
 
     def test_EOF_exits(self):
-        """Verify EOF command exits properly"""
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertTrue(HBNBCommand().onecmd("EOF"))
 
 
 class TestHBNBCommand_create(unittest.TestCase):
-    """
-    Test suite for create command functionality.
-    Ensures proper instance creation and handling.
-    """
+    """Unittests for testing create from the HBNB command interpreter."""
 
     @classmethod
     def setUp(self):
-        """Set up test environment before each test"""
         try:
             os.rename("file.json", "tmp")
         except IOError:
@@ -149,7 +129,6 @@ class TestHBNBCommand_create(unittest.TestCase):
 
     @classmethod
     def tearDown(self):
-        """Clean up test environment after each test"""
         try:
             os.remove("file.json")
         except IOError:
@@ -160,21 +139,18 @@ class TestHBNBCommand_create(unittest.TestCase):
             pass
 
     def test_create_missing_class(self):
-        """Validate error handling for missing class name"""
         correct = "** class name missing **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create"))
             self.assertEqual(correct, output.getvalue().strip())
 
     def test_create_invalid_class(self):
-        """Validate error handling for invalid class name"""
         correct = "** class doesn't exist **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create MyModel"))
             self.assertEqual(correct, output.getvalue().strip())
 
     def test_create_invalid_syntax(self):
-        """Validate error handling for invalid syntax"""
         correct = "*** Unknown syntax: MyModel.create()"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("MyModel.create()"))
@@ -185,7 +161,6 @@ class TestHBNBCommand_create(unittest.TestCase):
             self.assertEqual(correct, output.getvalue().strip())
 
     def test_create_object(self):
-        """Verify proper object creation for each valid class"""
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create BaseModel"))
             self.assertLess(0, len(output.getvalue().strip()))
@@ -224,14 +199,10 @@ class TestHBNBCommand_create(unittest.TestCase):
 
 
 class TestHBNBCommand_show(unittest.TestCase):
-    """
-    Test suite for show command functionality.
-    Validates proper display of instance information.
-    """
+    """Unittests for testing show from the HBNB command interpreter"""
 
     @classmethod
     def setUp(self):
-        """Set up test environment"""
         try:
             os.rename("file.json", "tmp")
         except IOError:
@@ -240,7 +211,6 @@ class TestHBNBCommand_show(unittest.TestCase):
 
     @classmethod
     def tearDown(self):
-        """Clean up test environment"""
         try:
             os.remove("file.json")
         except IOError:
@@ -251,7 +221,6 @@ class TestHBNBCommand_show(unittest.TestCase):
             pass
 
     def test_show_missing_class(self):
-        """Validate error handling for missing class name"""
         correct = "** class name missing **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("show"))
@@ -261,7 +230,6 @@ class TestHBNBCommand_show(unittest.TestCase):
             self.assertEqual(correct, output.getvalue().strip())
 
     def test_show_invalid_class(self):
-        """Validate error handling for invalid class name"""
         correct = "** class doesn't exist **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("show MyModel"))
@@ -271,7 +239,6 @@ class TestHBNBCommand_show(unittest.TestCase):
             self.assertEqual(correct, output.getvalue().strip())
 
     def test_show_missing_id_space_notation(self):
-        """Validate error handling for missing ID using space notation"""
         correct = "** instance id missing **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("show BaseModel"))
@@ -296,7 +263,6 @@ class TestHBNBCommand_show(unittest.TestCase):
             self.assertEqual(correct, output.getvalue().strip())
 
     def test_show_missing_id_dot_notation(self):
-        """Validate error handling for missing ID using dot notation"""
         correct = "** instance id missing **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("BaseModel.show()"))
@@ -321,7 +287,6 @@ class TestHBNBCommand_show(unittest.TestCase):
             self.assertEqual(correct, output.getvalue().strip())
 
     def test_show_no_instance_found_space_notation(self):
-        """Validate error handling for non-existent instance using space notation"""
         correct = "** no instance found **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("show BaseModel 1"))
@@ -346,7 +311,6 @@ class TestHBNBCommand_show(unittest.TestCase):
             self.assertEqual(correct, output.getvalue().strip())
 
     def test_show_no_instance_found_dot_notation(self):
-        """Validate error handling for non-existent instance using dot notation"""
         correct = "** no instance found **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("BaseModel.show(1)"))
@@ -371,7 +335,6 @@ class TestHBNBCommand_show(unittest.TestCase):
             self.assertEqual(correct, output.getvalue().strip())
 
     def test_show_objects_space_notation(self):
-        """Validate proper display of instances using space notation"""
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create BaseModel"))
             testID = output.getvalue().strip()
@@ -429,8 +392,7 @@ class TestHBNBCommand_show(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd(command))
             self.assertEqual(obj.__str__(), output.getvalue().strip())
 
-    def test_show_objects_dot_notation(self):
-        """Validate proper display of instances using dot notation"""
+    def test_show_objects_space_notation(self):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create BaseModel"))
             testID = output.getvalue().strip()
@@ -490,14 +452,10 @@ class TestHBNBCommand_show(unittest.TestCase):
 
 
 class TestHBNBCommand_destroy(unittest.TestCase):
-    """
-    Test suite for destroy command functionality.
-    Validates proper instance deletion and error handling.
-    """
+    """Unittests for testing destroy from the HBNB command interpreter."""
 
     @classmethod
     def setUp(self):
-        """Set up test environment"""
         try:
             os.rename("file.json", "tmp")
         except IOError:
@@ -506,7 +464,6 @@ class TestHBNBCommand_destroy(unittest.TestCase):
 
     @classmethod
     def tearDown(self):
-        """Clean up test environment"""
         try:
             os.remove("file.json")
         except IOError:
@@ -518,7 +475,6 @@ class TestHBNBCommand_destroy(unittest.TestCase):
         storage.reload()
 
     def test_destroy_missing_class(self):
-        """Validate error handling for missing class name"""
         correct = "** class name missing **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("destroy"))
@@ -528,7 +484,6 @@ class TestHBNBCommand_destroy(unittest.TestCase):
             self.assertEqual(correct, output.getvalue().strip())
 
     def test_destroy_invalid_class(self):
-        """Validate error handling for invalid class name"""
         correct = "** class doesn't exist **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("destroy MyModel"))
@@ -538,7 +493,6 @@ class TestHBNBCommand_destroy(unittest.TestCase):
             self.assertEqual(correct, output.getvalue().strip())
 
     def test_destroy_id_missing_space_notation(self):
-        """Validate error handling for missing ID using space notation"""
         correct = "** instance id missing **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("destroy BaseModel"))
@@ -562,7 +516,7 @@ class TestHBNBCommand_destroy(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd("destroy Review"))
             self.assertEqual(correct, output.getvalue().strip())
 
-              def test_destroy_id_missing_dot_notation(self):
+    def test_destroy_id_missing_dot_notation(self):
         correct = "** instance id missing **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("BaseModel.destroy()"))
