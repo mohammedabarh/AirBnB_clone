@@ -1,25 +1,19 @@
 #!/usr/bin/python3
-"""
-This module implements the foundation class BaseModel
-that other classes will inherit from
-"""
+"""This module defines the BaseModel class for the HBnB project."""
 import models
 from uuid import uuid4
 from datetime import datetime
 
 
 class BaseModel:
-    """
-    Base class that defines common attributes and methods
-    for other classes in the project
-    """
+    """This class serves as the base model for the HBnB application."""
 
     def __init__(self, *args, **kwargs):
-        """
-        Initialize new instance of BaseModel
+        """Initialize a new instance of BaseModel.
+        
         Args:
-            *args: Variable length argument list (not used)
-            **kwargs: Arbitrary keyword arguments for instance attributes
+            *args (any): Arguments that are not utilized.
+            **kwargs (dict): Key/value attribute pairs to set up the instance.
         """
         tform = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
@@ -35,20 +29,16 @@ class BaseModel:
             models.storage.new(self)
 
     def save(self):
-        """
-        Updates the public instance attribute updated_at
-        with current timestamp
-        """
+        """Update the updated_at attribute to the current date and time."""
         self.updated_at = datetime.today()
         models.storage.save()
 
     def to_dict(self):
-        """
-        Creates dictionary representation of instance
+        """Convert the BaseModel instance to a dictionary.
+        
         Returns:
-            dict: Contains all keys/values of __dict__ of the instance,
-                 created_at and updated_at in ISO format,
-                 and class name in __class__ key
+            dict: A dictionary representation of the instance,
+                  including the class name under the key __class__.
         """
         rdict = self.__dict__.copy()
         rdict["created_at"] = self.created_at.isoformat()
@@ -57,9 +47,6 @@ class BaseModel:
         return rdict
 
     def __str__(self):
-        """
-        Returns string representation of BaseModel instance
-        Format: [<class name>] (<self.id>) <self.__dict__>
-        """
+        """Provide a string representation of the BaseModel instance."""
         clname = self.__class__.__name__
         return "[{}] ({}) {}".format(clname, self.id, self.__dict__)
