@@ -1,15 +1,11 @@
 #!/usr/bin/python3
-"""Defines unittests for console.py.
-Unittest classes:
-    TestHBNBCommand_prompting
-    TestHBNBCommand_help
-    TestHBNBCommand_exit
-    TestHBNBCommand_create
-    TestHBNBCommand_show
-    TestHBNBCommand_all
-    TestHBNBCommand_destroy
-    TestHBNBCommand_update
 """
+Console Testing Module
+
+This module provides comprehensive testing for the HBNB console functionality.
+It validates command interpretation, execution, and output handling.
+"""
+
 import os
 import sys
 import unittest
@@ -21,7 +17,8 @@ from unittest.mock import patch
 
 
 class TestHBNBCommand_prompting(unittest.TestCase):
-    """Unittests for testing prompting of the HBNB command interpreter."""
+    """Test suite for command prompt functionality.
+    Validates proper prompt display and command line interface behavior."""
 
     def test_prompt_string(self):
         self.assertEqual("(hbnb) ", HBNBCommand.prompt)
@@ -33,7 +30,8 @@ class TestHBNBCommand_prompting(unittest.TestCase):
 
 
 class TestHBNBCommand_help(unittest.TestCase):
-    """Unittests for testing help messages of the HBNB command interpreter."""
+    """Test suite for help command functionality.
+    Ensures help messages are properly displayed for all commands."""
 
     def test_help_quit(self):
         h = "Quit command to exit the program."
