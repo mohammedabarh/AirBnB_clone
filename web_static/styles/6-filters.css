@@ -1,0 +1,96 @@
+.filters {
+    background-color: white; /* Background color for the filter section */
+    height: 70px; /* Fixed height for the filter section */
+    width: 100%; /* Full width of the parent container */
+    border: 1px solid #DDDDDD; /* Light gray border for the filter section */
+    border-radius: 4px; /* Rounded corners */
+    position: relative; /* Positioning context for absolute children */
+    display: flex; /* Flexbox layout for child elements */
+    align-items: center; /* Center items vertically */
+}
+
+.filters button {
+    font-size: 18px; /* Font size for buttons */
+    background-color: #FF5A5F; /* Button background color */
+    color: #FFFFFF; /* Button text color */
+    height: 48px; /* Fixed height for buttons */
+    width: 20%; /* Width of buttons */
+    border: 0px; /* No border */
+    border-radius: 4px; /* Rounded corners for buttons */
+    right: 30px; /* Positioning from the right */
+    top: 15%; /* Positioning from the top */
+    position: absolute; /* Absolute positioning */
+}
+
+.filters button:hover {
+    opacity: 90%; /* Slightly transparent on hover */
+}
+
+.filters > .locations, .filters > .amenities {
+    height: 100%; /* Full height of the filter section */
+    width: 25%; /* Width for location and amenities sections */
+    padding: 15px 40px; /* Padding inside sections */
+    box-sizing: border-box; /* Include padding in width/height calculations */
+    display: flex; /* Flexbox layout for child elements */
+    flex-direction: column; /* Stack children vertically */
+    position: relative; /* Positioning context for popovers */
+}
+
+.locations {
+    border-right: 1px solid #DDDDDD; /* Right border for locations section */
+}
+
+.filters h3 {
+    font-weight: 600; /* Bold font for main headings */
+    margin: 2px 20px; /* Margin around headings */
+}
+
+.filters h4 {
+    font-weight: 400; /* Normal font weight for subheadings */
+    font-size: 14px; /* Font size for subheadings */
+    margin: 2px 20px; /* Margin around subheadings */
+}
+
+.popover {
+    background-color: #FAFAFA; /* Light gray background for popover */
+    border: 1px solid #DDDDDD; /* Light gray border */
+    border-radius: 4px; /* Rounded corners for popover */
+    display: none; /* Hidden by default */
+    top: 100%; /* Position below the parent */
+    position: absolute; /* Absolute positioning */
+    left: 0; /* Align to the left */
+    width: 250px; /* Fixed width for popover */
+    box-sizing: border-box; /* Include padding in width */
+    margin: 0; /* No margin */
+    padding: 20px; /* Padding inside the popover */
+    list-style: none; /* Remove default list styling */
+}
+
+div:hover > .popover {
+    display: block; /* Show popover on hover */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.popover ul {
+    list-style-type: none; /* Remove bullet points from list */
+}
+
+.popover h2 {
+    font-size: 16px; /* Font size for popover headings */
+}
+
+.popover li {
+    margin: 10px 0 5px 0; /* Margin for list items */
+    list-style: none; /* Remove bullet points */
+    padding-left: 20px; /* Padding on the left */
+    display: block; /* Block display for list items */
+    grid-row-gap: 4px; /* Gap between rows */
+}
+
+.locations:hover > .popover {
+    display: block; /* Show popover on hover of locations */
+}
+
+.amenities:hover > .popover {
+    display: block; /* Show popover on hover of amenities */
+}

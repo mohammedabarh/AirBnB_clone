@@ -1,0 +1,144 @@
+/* Bottom margin for the places section */
+.places {
+    margin-bottom: 60px; /* Space below the places section */
+}
+
+/* Flexbox layout for the boxes containing articles */
+.boxes {
+    display: flex; /* Enables flexbox layout */
+    justify-content: center; /* Centers items horizontally */
+    align-items: stretch; /* Stretches items to fill the container height */
+    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+}
+
+/* Style for the main title in the places section */
+.places h1 {
+    font-size: 30px; /* Font size for the title */
+    vertical-align: top; /* Aligns text to the top */
+    text-align: left; /* Aligns text to the left */
+    padding: 10px 15px; /* Padding around the title */
+}
+
+/* Style for each article (place) */
+.places article {
+    width: 390px; /* Fixed width for consistency */
+    padding: 20px; /* Inner padding for articles */
+    margin: 20px; /* Space around each article */
+    border: #ff5a5f solid 1px; /* Border color matching the theme */
+    border-radius: 4px; /* Rounded corners */
+    display: inline-block; /* Allows inline display with margin support */
+    position: relative; /* Positioned relative for absolute positioning of child elements */
+}
+
+/* Style for secondary titles in articles */
+.places h2 {
+    font-size: 30px; /* Font size for section titles */
+    text-align: center; /* Centers the title */
+}
+
+/* Style for the price display */
+.places .price_by_night {
+    color: #ff5a5f; /* Text color matching the theme */
+    border: #ff5a5f solid 4px; /* Border color matching the theme */
+    border-radius: 50%; /* Circular shape */
+    min-width: 60px; /* Minimum width to maintain circular shape */
+    height: 60px; /* Fixed height for the circle */
+    font-size: 30px; /* Font size for the price */
+    right: 5%; /* Positioning from the right */
+    top: 5%; /* Positioning from the top */
+    position: absolute; /* Allows positioning within the article */
+    display: flex; /* Enables flexbox layout */
+    justify-content: center; /* Centers text horizontally */
+    align-items: center; /* Centers text vertically */
+}
+
+/* Information section for guests, rooms, and bathrooms */
+.information {
+    height: 80px; /* Fixed height for consistency */
+    border-top: #dddddd solid 1px; /* Top border for separation */
+    border-bottom: #dddddd solid 1px; /* Bottom border for separation */
+    display: flex; /* Enables flexbox layout */
+    justify-content: center; /* Centers items horizontally */
+    align-items: center; /* Centers items vertically */
+}
+
+/* Width for guest, room, and bathroom indicators */
+.max_guest,
+.number_rooms,
+.number_bathrooms {
+    width: 100px; /* Fixed width for uniformity */
+}
+
+/* No margin for paragraph elements in guest, room, and bathroom indicators */
+.max_guest p,
+.number_rooms p,
+.number_bathrooms p {
+    margin: 0; /* Removes default margin */
+}
+
+/* Background image for guest icon */
+.img1 {
+    background-image: url("../images/icon_group.png"); /* Guest icon image */
+    background-repeat: no-repeat; /* Prevents image repetition */
+    background-position: center; /* Centers the image */
+    height: 50px; /* Fixed height for the icon */
+}
+
+/* Background image for room icon */
+.img2 {
+    background-image: url("../images/icon_bed.png"); /* Room icon image */
+    background-repeat: no-repeat; /* Prevents image repetition */
+    background-position: center; /* Centers the image */
+    height: 50px; /* Fixed height for the icon */
+}
+
+/* Background image for bathroom icon */
+.img3 {
+    background-image: url("../images/icon_bath.png"); /* Bathroom icon image */
+    background-repeat: no-repeat; /* Prevents image repetition */
+    background-position: center; /* Centers the image */
+    height: 50px; /* Fixed height for the icon */
+}
+
+/* User information style */
+.user {
+    text-align: initial; /* Default text alignment */
+    padding: 10px 0; /* Vertical padding around user information */
+}
+
+/* Margin for amenities and reviews sections in articles */
+article .amenities,
+article .reviews {
+    margin-top: 40px; /* Space above these sections */
+}
+
+/* Style for the amenities and reviews section titles */
+article .amenities h2,
+article .reviews h2 {
+    text-align: initial; /* Default text alignment */
+    font-size: 16px; /* Font size for section titles */
+    border-bottom: #dddddd solid 1px; /* Underline for separation */
+}
+
+/* Unstyled list for amenities and reviews */
+article .amenities ul,
+article .reviews ul {
+    list-style: none; /* Removes default list styling */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+}
+
+/* Padding for individual items in the amenities list */
+article .amenities ul li {
+    padding: 5px; /* Space around each list item */
+}
+
+/* Font size for review titles */
+article .reviews h3 {
+    font-size: 14px; /* Font size for review titles */
+}
+
+/* Font size for review text */
+article .reviews p {
+    font-size: 12px; /* Font size for review content */
+}

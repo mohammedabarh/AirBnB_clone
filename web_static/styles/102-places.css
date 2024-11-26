@@ -1,0 +1,194 @@
+/* Styles for the places section */
+.places {
+    display        : flex; /* Enables flexbox layout for the section */
+    flex-direction : row; /* Aligns children in a row */
+    flex-wrap      : wrap; /* Allows items to wrap onto the next line */
+    justify-content: center; /* Centers items horizontally */
+    margin-bottom  : 5%; /* Space below the places section */
+}
+
+/* Main heading style for places */
+.places > h1 {
+    font-size    : 30px; /* Font size for the main title */
+    flex         : 0 1 100%; /* Takes full width and allows wrapping */
+    margin-bottom: 0; /* No bottom margin */
+    padding      : 0.5em 0 0 0.6em; /* Padding around the title */
+}
+
+/* Styles for each article (place) */
+.places > article {
+    width          : 390px; /* Fixed width for articles */
+    margin         : 20px; /* Space around each article */
+    padding        : 20px; /* Inner padding for articles */
+    border         : 1px solid #FF5a5F; /* Border color matching the theme */
+    border-radius  : 4px; /* Rounded corners for a softer look */
+    display        : flex; /* Enables flexbox layout for article contents */
+    flex-direction : column; /* Stacks children vertically */
+    justify-content: flex-start; /* Aligns items to the top */
+    position       : relative; /* Positioned relative for absolute children */
+}
+
+/* Secondary title style within articles */
+.places > article > h2 {
+    font-size : 30px; /* Font size for article titles */
+    align-self: center; /* Centers the title horizontally */
+    margin    : 0; /* No margin */
+}
+
+/* Price display style */
+.price_by_night {
+    font-size      : 30px; /* Font size for price text */
+    height         : 60px; /* Fixed height for price display */
+    color          : #FF5a5F; /* Price color matching the theme */
+    border         : #FF5a5F solid 4px; /* Border for price display */
+    border-radius  : 50%; /* Circular shape */
+    display        : flex; /* Enables flexbox layout */
+    justify-content: center; /* Centers text horizontally */
+    align-items    : center; /* Centers text vertically */
+    min-width      : 60px; /* Minimum width to maintain circular shape */
+    position       : absolute; /* Positioned absolute within the article */
+    top            : 10px; /* Positioning from the top */
+    right          : 20px; /* Positioning from the right */
+}
+
+/* Information section for guest, room, and bathroom details */
+.information {
+    height         : 80px; /* Fixed height for information section */
+    border-top     : #DDDDDD 1px solid; /* Top border for separation */
+    border-bottom  : #DDDDDD 1px solid; /* Bottom border for separation */
+    margin-top     : 1.8em; /* Space above the information section */
+    width          : 100%; /* Full width */
+    display        : flex; /* Enables flexbox layout */
+    justify-content: center; /* Centers items horizontally */
+    align-items    : center; /* Centers items vertically */
+    flex-direction : row; /* Aligns children in a row */
+}
+
+/* Guest icon style */
+.icon-guest {
+    width     : 50px; /* Fixed width for guest icon */
+    height    : 50px; /* Fixed height for guest icon */
+    margin    : 0 auto; /* Centers the icon */
+    background: url("../images/icon_guest.png") no-repeat; /* Background image */
+}
+
+/* Room icon style */
+.icon-rooms {
+    width     : 50px; /* Fixed width for room icon */
+    height    : 50px; /* Fixed height for room icon */
+    margin    : 0 auto; /* Centers the icon */
+    background: url("../images/icon_rooms.png") no-repeat; /* Background image */
+}
+
+/* Bathroom icon style */
+.icon-bathrooms {
+    width     : 50px; /* Fixed width for bathroom icon */
+    height    : 50px; /* Fixed height for bathroom icon */
+    margin    : 0 auto; /* Centers the icon */
+    background: url("../images/icon_bathrooms.png") no-repeat; /* Background image */
+}
+
+/* Styles for each information detail section */
+.information > div {
+    width     : 100px; /* Fixed width for each detail */
+    text-align: center; /* Centers text within each detail */
+}
+
+/* Paragraph styling within information detail */
+.information > div > p {
+    margin-top   : auto; /* Centers text vertically */
+    margin-bottom: auto; /* Centers text vertically */
+}
+
+/* User information styling */
+.user > p {
+    padding-top  : 0.7em; /* Space above user information */
+    margin-bottom: 5px; /* Space below user information */
+}
+
+/* Amenities section styling */
+.places .amenities {
+    margin-top: 40px; /* Space above amenities section */
+}
+
+/* Heading style for amenities section */
+.places .amenities > h2 {
+    font-size    : 16px; /* Font size for amenities title */
+    border-bottom: 1px solid #DDDDDD; /* Underline for separation */
+}
+
+/* Unstyled list for amenities */
+.places .amenities ul {
+    list-style: none; /* Removes default list styling */
+}
+
+/* TV icon styling */
+.icon-tv {
+    background     : url("../images/icon_tv.png") no-repeat; /* TV icon image */
+    background-size: cover; /* Ensures the icon covers the area */
+    width          : 20px; /* Fixed width for TV icon */
+    height         : 20px; /* Fixed height for TV icon */
+}
+
+/* Wifi icon styling */
+.icon-wifi {
+    background     : url("../images/icon_wifi.png") no-repeat; /* Wifi icon image */
+    background-size: cover; /* Ensures the icon covers the area */
+    width          : 20px; /* Fixed width for Wifi icon */
+    height         : 20px; /* Fixed height for Wifi icon */
+}
+
+/* Pets friendly icon styling */
+.icon-pets-friendly {
+    background     : url("../images/icon_pet_friendly.png") no-repeat; /* Pets friendly icon image */
+    background-size: cover; /* Ensures the icon covers the area */
+    width          : 20px; /* Fixed width for pets friendly icon */
+    height         : 20px; /* Fixed height for pets friendly icon */
+}
+
+/* Styles for each list item in amenities */
+.amenities > ul > li {
+    display        : flex; /* Enables flexbox layout for list items */
+    flex-direction : row; /* Aligns icons and text in a row */
+    justify-content: flex-start; /* Aligns items to the start */
+    margin-left    : -2.5em; /* Negative margin for alignment */
+}
+
+/* Margin for icon in amenities list */
+.amenities > ul > li > div {
+    margin-right: 0.5em; /* Space between icon and text */
+}
+
+/* Reviews section heading style */
+.reviews > h2 {
+    font-size    : 16px; /* Font size for reviews title */
+    border-bottom: 1px #DDDDDD solid; /* Underline for separation */
+}
+
+/* List styling for reviews */
+.reviews li,
+.reviews ul {
+    margin-left: -1.25em; /* Negative margin for alignment */
+}
+
+/* Review item title style */
+.reviews li > h3 {
+    font-size: 14px; /* Font size for review titles */
+}
+
+/* Review item paragraph style */
+.reviews li > p {
+    font-size: 12px; /* Font size for review content */
+}
+
+/* Unstyled list for reviews */
+.reviews > ul {
+    list-style: none; /* Removes default list styling */
+}
+
+/* Responsive styles for smaller screens */
+@media only screen and (max-width: 1000px) {
+    .places h1 {
+        width: 95%; /* Reduces width of title on smaller screens */
+    }
+}

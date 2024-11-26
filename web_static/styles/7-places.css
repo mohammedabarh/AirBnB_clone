@@ -1,0 +1,26 @@
+.places {
+    display: flex; /* Use flexbox layout for child elements */
+    flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
+    justify-content: center; /* Center items horizontally */
+}
+
+.places h1 {
+    font-size: 30px; /* Font size for main heading */
+    text-align: left; /* Align text to the left */
+    width: 100%; /* Full width of the parent container */
+    margin-bottom: 0; /* No margin below the heading */
+}
+
+.places h2 {
+    font-size: 30px; /* Font size for subheadings */
+    margin-top: 0; /* No margin above the subheading */
+}
+
+.places article h2 {
+    width: 390px; /* Fixed width for article headings */
+    padding: 20px; /* Padding inside the heading */
+    margin: 20px; /* Margin around the heading */
+    border: 1px solid #FF5A5F; /* Border color matching the theme */
+    border-radius: 4px; /* Rounded corners for the heading */
+    text-align: center; /* Center text within the heading */
+}
